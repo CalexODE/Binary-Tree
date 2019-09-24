@@ -1,13 +1,8 @@
-#include "../include/node.hpp"
+#include "../include/Menu.hpp"
 
-#include <iostream>
-
-using namespace std;
 
 int main()
 {
-	Node* no = new Node();
-	no->valor = "Alexandre";
-
+	menu();
 	return 0;
 }
