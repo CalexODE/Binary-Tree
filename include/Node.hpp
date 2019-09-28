@@ -7,9 +7,19 @@ using namespace std;
 class Node
 {
 	public:
-		string valor;
+		int chave;
 		Node* Lchild;
 		Node* Rchild;
+
+		Node(int valor);
+
+		int getChave();
+
+		Node* getLchild();
+		Node* getRchild();
+
+		void setLchild(Node* left);
+		void setRchild(Node* rigth);
 };
 
 #endif
