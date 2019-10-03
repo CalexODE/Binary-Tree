@@ -97,7 +97,7 @@ void percorreSimetrica(Node* no){
 
 	cout<<no->getChave()<<endl;
 
-	if (no->getRchild()==NULL)
+	if (no->getRchild()!=NULL)
 	{
 		percorreSimetrica(no->getRchild());
 	}
