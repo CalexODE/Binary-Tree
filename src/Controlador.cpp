@@ -82,3 +82,23 @@ void Arvore::inserirAux(Node* node, int chave)
 		}
 	}
 }
+
+
+void Arvore::remover(int chave)
+{
+
+}
+
+void percorreSimetrica(Node* no){
+	if (no->getLchild() != NULL)
+	{
+		percorreSimetrica(no->getLchild());
+	}
+
+	cout<<no->getChave()<<endl;
+
+	if (no->getRchild()==NULL)
+	{
+		percorreSimetrica(no->getRchild());
+	}
+}

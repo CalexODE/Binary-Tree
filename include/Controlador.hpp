@@ -23,4 +23,7 @@ public:
 
 	void inserir(int chave);
 	void inserirAux(Node* node, int chave);
+
+	void remover(int chave);
+	void percorreSimetrica(Node no);
 };
