@@ -2,13 +2,14 @@
 
 void menu()
 {
+	Arvore* arvore = new Arvore();
+	
 	while(true){
 		int res;
-		cout<<"1 - Buscar(Teste)\n2 - Inserir\n3 - Remover\n10 - fteste\n0-sair"<<endl;
+		cout<<"1 - Buscar(Teste)\n2 - Inserir\n3 - Remover\n4 - Percorre\n10 - fteste\n0-sair"<<endl;
 		cin>>res;
 		
 
-		Arvore* arvore = new Arvore();
 
 		switch(res)
 		{
@@ -25,6 +26,10 @@ void menu()
 			case 3:
 				cout<<"Removendo..."<<endl;
 				arvore->remocao();
+				break;
+			case 4:
+				cout<<"Mostrando..."<<endl;
+				arvore->percorreSimetrica();
 				break;
 			case 10:
 				fteste();

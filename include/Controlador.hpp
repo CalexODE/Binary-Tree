@@ -16,6 +16,7 @@ private:
 public:
 
 	Arvore();
+	Node* getRaiz();
 	
 	void busca();
 	void insercao();
@@ -25,5 +26,8 @@ public:
 	void inserirAux(Node* node, int chave);
 
 	void remover(int chave);
-	void percorreSimetrica(Node no);
+
+	void percorreSimetrica();
 };
+
+void percorreSimetricaAux(Node* no);

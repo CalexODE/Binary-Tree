@@ -11,6 +11,11 @@ Arvore::Arvore()
 	this->raiz = NULL;
 }
 
+Node* Arvore::getRaiz()
+{
+	return this->raiz;
+}
+
 void Arvore::busca()
 {
 	
@@ -19,6 +24,11 @@ void Arvore::busca()
 void Arvore::insercao()
 {
 	inserir(13);
+	inserir(10);
+	inserir(15);
+	inserir(14);
+	inserir(8);
+	inserir(11);
 }
 
 void Arvore::remocao()
@@ -31,6 +41,7 @@ void Arvore::inserir(int chave)
 	if (raiz == NULL)
 	{
 		raiz = new Node(chave);
+		cout<<"Node a ser adicionado: " << raiz->getChave()<<endl;
 	}else
 	{
 		inserirAux(raiz, chave);
@@ -50,6 +61,7 @@ void Arvore::inserirAux(Node* node, int chave)
 			cout<<"Não há filho a direita"<<endl;
 
 			Node* new_node = new Node(chave);
+			cout<<"Node a ser adicionado: " << new_node->getChave()<<endl;
 			node->setRchild(new_node);
 		}
 		else 
@@ -71,6 +83,7 @@ void Arvore::inserirAux(Node* node, int chave)
 			cout<<"Não há filho a esquerda"<<endl;
 
 			Node* new_node = new Node(chave);
+			cout<<"Node a ser adicionado: " << new_node->getChave()<<endl;
 			node->setLchild(new_node);
 		}
 		else
@@ -88,17 +101,41 @@ void Arvore::remover(int chave)
 {
 
 }
+void Arvore::percorreSimetrica()
+{
+	cout<<"antes de chamar"<<endl;
 
-void percorreSimetrica(Node* no){
-	if (no->getLchild() != NULL)
+	percorreSimetricaAux(getRaiz());
+	
+	cout<<"depois de chamar"<<endl;
+}
+
+void percorreSimetricaAux(Node* no){
+	
+	if (no != NULL)
 	{
-		percorreSimetrica(no->getLchild());
-	}
 
-	cout<<no->getChave()<<endl;
 
-	if (no->getRchild()!=NULL)
-	{
-		percorreSimetrica(no->getRchild());
+		cout<<"antes do if(no->getLchild())"<<endl;
+		if (no->getLchild() != NULL)
+		{
+
+			cout<<"antes do percorreSimetricaAux(no->getLchild())"<<endl;
+
+			percorreSimetricaAux(no->getLchild());
+
+		}
+
+		cout<<"antes do getChave()"<<endl;
+		cout<<no->getChave()<<endl;
+
+		if (no->getRchild()!=NULL)
+		{
+
+
+			percorreSimetricaAux(no->getRchild());
+
+
+		}
 	}
 }
