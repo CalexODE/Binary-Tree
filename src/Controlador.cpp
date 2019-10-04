@@ -16,6 +16,11 @@ Node* Arvore::getRaiz()
 	return this->raiz;
 }
 
+void Arvore::setRaiz(Node* node)
+{
+	this->raiz = node;
+}
+
 void Arvore::busca()
 {
 	int chave;
@@ -39,11 +44,6 @@ void Arvore::insercao()
 	inserir(14);
 	inserir(8);
 	inserir(11);
-}
-
-void Arvore::remocao()
-{
-
 }
 
 void Arvore::inserir(int chave)
@@ -107,10 +107,101 @@ void Arvore::inserirAux(Node* node, int chave)
 }
 
 
-void Arvore::remover(int chave)
+void Arvore::remocao()
 {
+	int chave;
+	cout<<"Node a ser removido. Chave: ";
+	cin>>chave;
+	if (getRaiz() != NULL)
+	{
+	
+		if (getRaiz()->getChave() == chave)
+		{
+			Node* node_substituto = nodeSubstituto(getRaiz());
+
+			if (node_substituto == NULL)
+			{
+				//setRaiz(getRaiz->getRchild());
+			}
+			else{
+				cout<<"Node subtituto" <<node_substituto->getChave()<<endl;
+			}
+		}
+		else
+		{
+			cout<<"Node do início "<<getRaiz()->getChave()<<endl;
+			Node* node_father = remocaoBusca(getRaiz(), chave);
+			cout<<"O pai do node é: "<<node_father->getChave()<<endl;
+		}
+	}
+}
+
+Node* nodeSubstituto(Node* node)
+{
+	if (node->getLchild() == NULL)
+	{
+		cout<<"Node null"<<endl;
+		return NULL;
+	}
+	else{
+
+		return nodeSubstituto(node->getLchild());
+	}
+}
+
+Node* nodeSubstitutoAux(Node* node)
+{
+	if (node->getRchild() != NULL)
+	{
+		node = nodeSubstitutoAux(node->getRchild());
+	}
+	else{
+		return node;
+	}
+}
+
+Node* remocaoBusca(Node* node, int chave)
+{
+	if (node->getChave() > chave)
+	{
+		cout<<"O node é menor que a raiz"<<endl;
+		if (node->getLchild() != NULL)
+		{
+			if (node->getLchild()->getChave() == chave)
+			{
+				cout<<"node encontrado!"<<endl;
+				cout<<node->getChave()<<endl;
+				return node;
+			}
+			else
+			{
+				node = remocaoBusca(node->getLchild(), chave);
+			}
+		}
+	}
+	else if (node->getChave() < chave)
+	{
+		cout<<"O node é maior que a raiz"<<endl;
+		if (node->getRchild() != NULL)
+		{
+
+			if (node->getRchild()->getChave() == chave)
+			{
+				cout<<"node encontrado!"<<endl;
+				cout<<node->getChave()<<endl;
+				return node;
+			}
+			else
+			{
+				node = remocaoBusca(node->getRchild(), chave);
+			}
+		}
+	}
+	return node;
 
 }
+
+
 void Arvore::percorreSimetrica()
 {
 	cout<<"antes de chamar"<<endl;

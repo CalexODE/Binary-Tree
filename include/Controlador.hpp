@@ -17,6 +17,7 @@ public:
 
 	Arvore();
 	Node* getRaiz();
+	void setRaiz(Node* node);
 	
 	void busca();
 	void insercao();
@@ -25,10 +26,13 @@ public:
 	void inserir(int chave);
 	void inserirAux(Node* node, int chave);
 
-	void remover(int chave);
 
 	void percorreSimetrica();
 };
+
+Node* remocaoBusca(Node* node, int chave);
+Node* nodeSubstituto(Node* node);
+Node* nodeSubstitutoAux(Node* node);
 
 Node* buscaAux(Node* node, int chave);
 
