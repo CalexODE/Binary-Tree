@@ -18,7 +18,17 @@ Node* Arvore::getRaiz()
 
 void Arvore::busca()
 {
-	
+	int chave;
+	cout<<"Chave: ";
+	cin>>chave;
+	Node* node = buscaAux(getRaiz(), chave);
+	if (node != NULL)
+	{
+		cout<<"Node encontrado! chave: "<< node->getChave()<<endl;
+	}
+	else{
+		cout<<"nada encontrado"<<endl;
+	}
 }
 
 void Arvore::insercao()
@@ -132,10 +142,54 @@ void percorreSimetricaAux(Node* no){
 		if (no->getRchild()!=NULL)
 		{
 
-
+			cout<<"antes do percorreSimetricaAux(no->getRchild())"<<endl;
 			percorreSimetricaAux(no->getRchild());
 
 
 		}
 	}
+}
+
+Node* buscaAux(Node* node, int chave){
+	
+	if (node != NULL)
+	{
+
+		if (chave == node->getChave())
+		
+		{
+			cout<<"Chave encontrada"<<endl;
+			return node;
+		}
+
+		else if (chave < node->getChave())
+		{
+			cout<<"antes do if(node->getLchild())"<<endl;
+			if (node->getLchild() != NULL)
+			{
+				cout<<"antes do busca(node->getLchild())"<<endl;
+				node = buscaAux(node->getLchild(), chave);
+			}
+			else {
+				cout<<"Chave não encontrada"<<endl;
+				node = NULL;
+			}
+		}
+
+		else if (chave > node->getChave())
+		{
+			cout<<"antes do if(node->getLchild())"<<endl;
+			if (node->getRchild()!=NULL)
+			{
+				cout<<"antes do busca(node->getRchild())"<<endl;
+				node = buscaAux(node->getRchild(), chave);
+			}
+			else{
+				cout<<"Chave não encontrada"<<endl;
+				node = NULL;
+			}
+		}
+	}
+	cout<<"Se passou aqui ta errado"<<endl;
+	return node;
 }

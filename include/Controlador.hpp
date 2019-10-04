@@ -30,4 +30,6 @@ public:
 	void percorreSimetrica();
 };
 
+Node* buscaAux(Node* node, int chave);
+
 void percorreSimetricaAux(Node* no);
