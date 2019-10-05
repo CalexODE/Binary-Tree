@@ -117,45 +117,99 @@ void Arvore::remocao()
 	
 		if (getRaiz()->getChave() == chave)
 		{
+			cout<<"O node é uma raiz"<<endl;
+
 			Node* node_substituto = nodeSubstituto(getRaiz());
 
 			if (node_substituto == NULL)
 			{
-				//setRaiz(getRaiz->getRchild());
+				if (getRaiz()->getRchild() != NULL)
+				{
+					//setRaiz(getRaiz->getRchild());
+					cout<<"Node há esquerda adicionado com raiz"<<endl;
+				}
+				else
+				{
+					delete raiz;
+				}
 			}
 			else{
 				cout<<"Node subtituto" <<node_substituto->getChave()<<endl;
+				Node* node_father_deslocado = remocaoBusca(getRaiz(), node_substituto->getChave());
+				cout<<"O pai do node é: "<<node_father_deslocado->getChave()<<endl;
+
+				
+
+
 			}
 		}
 		else
 		{
 			cout<<"Node do início "<<getRaiz()->getChave()<<endl;
 			Node* node_father = remocaoBusca(getRaiz(), chave);
+
 			cout<<"O pai do node é: "<<node_father->getChave()<<endl;
+
+			if (node_father->getLchild() != NULL)
+			{
+				cout<<"O filho L do node é: "<<node_father->getLchild()->getChave()<<endl;
+			}
+			else {
+				cout<<"Filho L null"<<endl;
+			}
+
+			if (node_father->getRchild() != NULL)
+			{
+				cout<<"O filho R do node é: "<<node_father->getRchild()->getChave()<<endl;
+			}
+			else {
+				cout<<"Filho R null"<<endl;
+			}
+
+
+			Node* node_r;
+			if (node_father->getLchild()->getChave() == chave)
+			{
+				node_r = node_father->getLchild();
+			}
+			else{
+				node_r = node_father->getRchild();
+			}
+
+			cout<<"Node a ser removido: "<<node_r->getChave()<<endl;
+			Node* node_substituto = nodeSubstituto(node_r);
+			//cout<<"Substituto: "<<node_substituto->getChave()<<endl;
+
+			
 		}
 	}
 }
 
 Node* nodeSubstituto(Node* node)
 {
+	cout<<"Node de entrada: "<<node->getChave()<<endl;
+
 	if (node->getLchild() == NULL)
 	{
+		cout<<"Node null poraqui"<<endl;
 		cout<<"Node null"<<endl;
 		return NULL;
 	}
 	else{
 
-		return nodeSubstituto(node->getLchild());
+		return nodeSubstitutoAux(node->getLchild());
 	}
 }
 
 Node* nodeSubstitutoAux(Node* node)
 {
+	cout<<"nodeSubstitutoAux: "<<node->getChave()<<endl;
 	if (node->getRchild() != NULL)
 	{
 		node = nodeSubstitutoAux(node->getRchild());
 	}
 	else{
+
 		return node;
 	}
 }

@@ -31,6 +31,7 @@ public:
 };
 
 Node* remocaoBusca(Node* node, int chave);
+
 Node* nodeSubstituto(Node* node);
 Node* nodeSubstitutoAux(Node* node);
 
