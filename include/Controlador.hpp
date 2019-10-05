@@ -28,6 +28,7 @@ public:
 
 
 	void percorreSimetrica();
+	Node* buscarN_esimo();
 };
 
 Node* remocaoBusca(Node* node, int chave);
@@ -38,3 +39,6 @@ Node* nodeSubstitutoAux(Node* node);
 Node* buscaAux(Node* node, int chave);
 
 void percorreSimetricaAux(Node* no);
+
+
+Node* buscarN_esimoAux(Node* node, int n);

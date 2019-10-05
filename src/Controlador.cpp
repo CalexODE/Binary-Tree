@@ -138,7 +138,7 @@ void Arvore::remocao()
 				Node* node_father_deslocado = remocaoBusca(getRaiz(), node_substituto->getChave());
 				cout<<"O pai do node é: "<<node_father_deslocado->getChave()<<endl;
 
-				
+
 
 
 			}
@@ -336,5 +336,60 @@ Node* buscaAux(Node* node, int chave){
 		}
 	}
 	cout<<"Se passou aqui ta errado"<<endl;
+	return node;
+}
+
+Node* Arvore::buscarN_esimo()
+{
+	int n;
+	cout<<"Buscar n-esimo: "<<endl;
+	cin>>n;
+
+	Node* n_esimo = buscarN_esimoAux(raiz, n);
+
+	cout<<"N-ésimo: "<<n_esimo->getChave()<<endl;
+
+}
+
+Node* buscarN_esimoAux(Node* node, int n)
+{
+	cout<<"Node Atual: "<<node->getChave()<<" |  n: "<<n<<endl;
+	if (n == 0)
+	{
+		return node;
+	}
+	else{
+		if (node != NULL)
+		{
+
+			cout<<"antes do if(node->getLchild())"<<endl;
+			if (node->getLchild() != NULL)
+			{
+
+				cout<<"buscarN_esimoAux(node->getLchild(), n)"<<endl;
+
+				buscarN_esimoAux(node->getLchild(), n);
+
+			}
+
+			cout<<"antes do getChave()"<<endl;
+			cout<<node->getChave()<<endl;
+			cout<<"Node Atual: "<<node->getChave()<<" |  n: "<<n<<endl;
+			n--;
+			if (n==0)
+			{
+				return node;
+			}
+
+			if (node->getRchild() != NULL)
+			{
+
+				cout<<"buscarN_esimoAux(node->getRchild(), n)"<<endl;
+				buscarN_esimoAux(node->getRchild(), n);
+
+
+			}
+		}
+	}
 	return node;
 }

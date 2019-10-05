@@ -6,7 +6,7 @@ void menu()
 	
 	while(true){
 		int res;
-		cout<<"1 - Buscar(Teste)\n2 - Inserir\n3 - Remover\n4 - Percorre\n10 - fteste\n0-sair"<<endl;
+		cout<<"1 - Buscar(Teste)\n2 - Inserir\n3 - Remover\n4 - Percorre\n5 - Bucar N-ésimo\n10 - fteste\n0-sair"<<endl;
 		cin>>res;
 		
 
@@ -30,6 +30,10 @@ void menu()
 			case 4:
 				cout<<"Mostrando..."<<endl;
 				arvore->percorreSimetrica();
+				break;
+			case 5:
+				cout<<"Buscar N-esimo"<<endl;
+				arvore->buscarN_esimo();
 				break;
 			case 10:
 				fteste();
