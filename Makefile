@@ -30,5 +30,8 @@ build/Node.o: src/Node.cpp
 build/Controlador.o: src/Controlador.cpp
 	$(cc) $(cc_flags) -c src/Controlador.cpp && mv Controlador.o build
 
+BST:
+	./bin/BST
+
 clear:
-	rm -rf build/*.o
+	rm -rf build/*.o bin/BST
