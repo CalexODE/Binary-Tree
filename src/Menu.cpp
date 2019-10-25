@@ -29,7 +29,8 @@ void menu()
 				break;
 			case 4:
 				cout<<"Mostrando..."<<endl;
-				arvore->preOrder(arvore->getRaiz());
+				arvore->postOrder(arvore->getRaiz());
+				cout<<endl;
 				break;
 			case 5:
 				cout<<"Buscar N-esimo"<<endl;
