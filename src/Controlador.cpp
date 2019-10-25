@@ -1,4 +1,4 @@
-#include "../include/Controlador.hpp"
+#include "Controlador.hpp"
 
 void fteste()
 {
@@ -191,7 +191,7 @@ Node* nodeSubstituto(Node* node)
 
 	if (node->getLchild() == NULL)
 	{
-		cout<<"Node null poraqui"<<endl;
+		cout<<"Node null por aqui"<<endl;
 		cout<<"Node null"<<endl;
 		return NULL;
 	}
@@ -255,6 +255,13 @@ Node* remocaoBusca(Node* node, int chave)
 
 }
 
+void Arvore::preOrder(Node* n){
+	if(n != NULL){
+		cout<<n->getChave() + " ";
+		preOrder(n->getLchild());
+		preOrder(n->getRchild());
+	}
+}
 
 void Arvore::percorreSimetrica()
 {

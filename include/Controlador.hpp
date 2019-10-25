@@ -1,6 +1,9 @@
-#include "../include/Node.hpp"
+#ifndef CONTROLADOR_HPP
+#define CONTROLADOR_HPP
 
+#include "Node.hpp"
 #include <iostream>
+
 using namespace std;
 
 void fteste();
@@ -26,8 +29,10 @@ public:
 	void inserir(int chave);
 	void inserirAux(Node* node, int chave);
 
-
+	void preOrder(Node* n);
 	void percorreSimetrica();
+	//void postOrder(Node* n);
+
 	Node* buscarN_esimo();
 };
 
@@ -42,3 +47,5 @@ void percorreSimetricaAux(Node* no);
 
 
 Node* buscarN_esimoAux(Node* node, int n);
+
+#endif

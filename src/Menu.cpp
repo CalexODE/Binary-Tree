@@ -1,4 +1,4 @@
-#include "../include/Menu.hpp"
+#include "Menu.hpp"
 
 void menu()
 {
@@ -29,7 +29,7 @@ void menu()
 				break;
 			case 4:
 				cout<<"Mostrando..."<<endl;
-				arvore->percorreSimetrica();
+				arvore->preOrder(arvore->getRaiz());
 				break;
 			case 5:
 				cout<<"Buscar N-esimo"<<endl;
