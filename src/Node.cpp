@@ -1,4 +1,6 @@
 #include "Node.hpp"
+//@TODO aprenda a usar ponteiros inteligentes
+#include <memory>
 
 Node::Node(int chave)
 {
