@@ -35,6 +35,31 @@ void Arvore::busca()
 		cout<<"nada encontrado"<<endl;
 	}
 }
+//Método de busca de forma iterativa, ou seja, sem recursão :)
+Node* buscaAux(Node* node, int chave){
+	while(node != NULL){
+
+		if(chave < node->getChave()){
+			if(node->getLchild() == NULL)
+				return NULL;
+			else
+				node = node->getLchild();
+		}
+
+		else if(chave > node->getChave()){
+			if(node->getRchild() == NULL)
+				return NULL;
+			else
+				node = node->getRchild();
+		}
+
+		else{
+			cout<<"Chave encontrada"<<endl;
+			return node;
+		}
+	}
+	return NULL;
+}
 
 void Arvore::insercao()
 {
@@ -312,50 +337,6 @@ void percorreSimetricaAux(Node* no){
 
 		}
 	}
-}
-
-Node* buscaAux(Node* node, int chave){
-	
-	if (node != NULL)
-	{
-
-		if (chave == node->getChave())
-		
-		{
-			cout<<"Chave encontrada"<<endl;
-			return node;
-		}
-
-		else if (chave < node->getChave())
-		{
-			cout<<"antes do if(node->getLchild())"<<endl;
-			if (node->getLchild() != NULL)
-			{
-				cout<<"antes do busca(node->getLchild())"<<endl;
-				node = buscaAux(node->getLchild(), chave);
-			}
-			else {
-				cout<<"Chave não encontrada"<<endl;
-				node = NULL;
-			}
-		}
-
-		else if (chave > node->getChave())
-		{
-			cout<<"antes do if(node->getLchild())"<<endl;
-			if (node->getRchild()!=NULL)
-			{
-				cout<<"antes do busca(node->getRchild())"<<endl;
-				node = buscaAux(node->getRchild(), chave);
-			}
-			else{
-				cout<<"Chave não encontrada"<<endl;
-				node = NULL;
-			}
-		}
-	}
-	cout<<"Se passou aqui ta errado"<<endl;
-	return node;
 }
 
 Node* Arvore::buscarN_esimo()
