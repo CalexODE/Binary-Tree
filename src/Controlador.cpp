@@ -258,8 +258,10 @@ Node* remocaoBusca(Node* node, int chave)
 void Arvore::preOrder(Node* n){
 	if(n != NULL){
 		cout<< n->getChave() << " ";
-		preOrder(n->getLchild());
-		preOrder(n->getRchild());
+		if(n->getLchild() != NULL)
+			preOrder(n->getLchild());
+		if(n->getRchild() != NULL)
+			preOrder(n->getRchild());
 	}
 }
 
@@ -274,8 +276,10 @@ void Arvore::percorreSimetrica()
 
 void Arvore::postOrder(Node* n){
 	if(n != NULL){
-		postOrder(n->getLchild());
-		postOrder(n->getRchild());
+		if(n->getLchild() != NULL)
+			postOrder(n->getLchild());
+		if(n->getRchild() != NULL)
+			postOrder(n->getRchild());
 		cout<< n->getChave() << " ";
 	}
 }
