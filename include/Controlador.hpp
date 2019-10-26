@@ -31,7 +31,7 @@ public:
 
 	void preOrder(Node* n);
 	void percorreSimetrica();
-	//void postOrder(Node* n);
+	void postOrder(Node* n);
 
 	Node* buscarN_esimo();
 };
