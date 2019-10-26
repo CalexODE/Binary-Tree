@@ -30,7 +30,7 @@ void menu()
 				break;
 			case 4:
 				cout<<"Mostrando..."<<endl;
-				arvore->postOrder(arvore->getRaiz());
+				arvore->preOrder(arvore->getRaiz());
 				cout<<endl;
 				break;
 			case 5:
